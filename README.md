@@ -7,7 +7,7 @@
 
 - Desactiver la persistance (durable : false )
 
-- Attribuer aux queues un prefetch de 2 calculs pour éviter la surcharge
+- Attribuer aux queues un prefetch de 1 calcul pour éviter la surcharge
 
 - Pour la première étape, crée un exchange direct avec le type d'opération comme clé
 
