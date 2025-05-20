@@ -15,7 +15,7 @@ async function produce() {
         const n2 = Math.floor(Math.random() * 100);
         const msg = `${n1} ${n2}`
         if (n2 !== 0 && op !== 'div') {
-            ch.publish(exchange, "sub", Buffer.from(msg), {
+            ch.publish(exchange, op, Buffer.from(msg), {
                 replyTo: queue_response,
                 correlationId: generateUuid()
             });
