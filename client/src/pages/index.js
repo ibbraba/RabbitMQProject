@@ -1,10 +1,11 @@
-import Indexcomponent from '../components/indexcomponent';
+import Calculator from '../components/calculator';
+import './index.css';
 
 const Index = () => {
 
   return (
     <div className="page-container">
-      <Indexcomponent />
+      <Calculator />
     </div>
   );
 };
