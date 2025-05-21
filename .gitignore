@@ -10,4 +10,5 @@
 ./rabbitmq/package-lock.json
 ./affichage/package-lock.json
 ./client/package-lock.json
+./rabbitmq/node_modules
 
