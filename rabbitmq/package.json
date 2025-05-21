@@ -3,13 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start1": "node consumer_add.js",
+    "start2": "node consumer_sub.js",
+    "start3": "node consumer_div.js",
+    "start4": "node consumer_mul.js",
+    "start5": "node producer.js",
+    "start": "npm-run-all --parallel start1 start2 start3 start4 start5"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "amqplib": "^0.10.8",
+    "npm-run-all": "^4.1.5"
     "express": "^5.1.0",
     "ws": "^8.18.2"
   }
