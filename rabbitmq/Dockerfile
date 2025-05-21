@@ -5,4 +5,4 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-CMD ["bash", "wait-for-it.sh", "rabbitmq:5672", "--", "npm", "start"]
+CMD ["npm", "start"]
