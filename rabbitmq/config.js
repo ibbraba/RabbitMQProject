@@ -1,7 +1,7 @@
 // Chargement de la librairie amqplib
 const amqplib = require('amqplib');
 
-const rabbitmq_url = 'amqp://user:password@efrei20250519.hopto.org:5680'
+const rabbitmq_url = process.env.RABBITMQ_URL || 'amqp://user:password@efrei20250519.hopto.org:5680'
 
 const exchange = "IMDA-exchange"
 
