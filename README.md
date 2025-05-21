@@ -18,15 +18,21 @@
 ## Lancer le projet 
 
 Dans le dossier rabbitmq, lancer :
-
+### `npm install`
 ### `npm run start`
 
 
 Dans le dossier client, lancer :
-
+### `npm install`
 ### `npm start`
 
 Ouvrez [http://localhost:3000](http://localhost:3000) pour voir la page dans votre navigateur.
+
+## Lancer le projet avec Docker 
+
+A la racine du projet executer cette commande pour lancer le serveur RabbiMQ et observer depuis le terminal des opérations de calculs aléatoires
+
+### `docker-compose up --build`
 
 ## Organisation du projet
 
