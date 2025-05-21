@@ -23,28 +23,32 @@ server.on('upgrade', (req, socket, head) => {
 
 
 // Définition des informations de connexion
-const rabbitmq_url = 'amqp://user:password@efrei20250519.hopto.org:5680'
+const rabbitmq_url = process.env.RABBITMQ_URL || 'amqp://user:password@efrei20250519.hopto.org:5680'
 
 async function start_consumer() {
-    const conn = await amqp.connect(rabbitmq_url);
-    channel = await conn.createChannel();
-    channel.prefetch(1)
-    await channel.assertQueue(queue, { durable: false });
 
-    console.log(`Waiting for messages in ${queue}`);
+    setTimeout(async () => {
+        const conn = await amqp.connect(rabbitmq_url);
+        channel = await conn.createChannel();
+        channel.prefetch(1)
+        await channel.assertQueue(queue, { durable: false });
 
-    channel.consume(queue, consume, { noAck: false });
+        console.log(`Waiting for messages in ${queue}`);
+
+        channel.consume(queue, consume, { noAck: false })
+    }, 30000)
+    
 }
 
 function consume(message) {
 
     console.log(`Message reçu : ${message.content.toString()}`);
-    
+
 
     // Broadcast to all WebSocket clients
     wss.clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
-            console.log("Sending response to client ...");    
+            console.log("Sending response to client ...");
             client.send(message.content.toString());
         }
     });
