@@ -38,7 +38,13 @@ async function configure() {
     await channel.bindQueue(queue_sub, exchange, 'sub');
     await channel.bindQueue(queue_mul, exchange, 'mul');
     await channel.bindQueue(queue_div, exchange, 'div');
-    await channel.bindQueue(queue_all, exchange, 'all');
+    
+    
+    await channel.bindQueue(queue_add, exchange, 'all')
+    await channel.bindQueue(queue_sub, exchange, 'all')
+    await channel.bindQueue(queue_mul, exchange, 'all')
+    await channel.bindQueue(queue_div, exchange, 'all')
+
     
 
 
